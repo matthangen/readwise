@@ -47,3 +47,6 @@ docs/_build/
 
 # mypy
 .mypy_cache/
+
+#venv
+venv/
