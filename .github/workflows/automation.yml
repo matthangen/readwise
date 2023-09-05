@@ -1,2 +1,33 @@
-schedule:
-    - cron: "0 3 * * 1,2,3,4,5,6"
+# This workflow will install Python dependencies, run tests and lint with a single version of Python
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python
+
+name: Python application
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.11.5
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install flake8 pytest
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+    - name: run
+      run: |
+        python3 run.py 90wDuldv4LKDN6QYOFVXFdwf8dRyC8kPK6O2O5sobiMLkcTzbD kAg9mNJY2A0dyrQS42N9kUEb 12301611
